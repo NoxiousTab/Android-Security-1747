@@ -1,0 +1,45 @@
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Android Security Enhancement Tool</title>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
+        <h1 class="text-3xl font-bold text-center text-green-600 mb-6">Android Security Enhancement Tool</h1>
+        <form action="/upload/" method="post" enctype="multipart/form-data">
+            <div class="mb-4">
+                <h2 class="text-xl font-semibold mb-2">Upload your APK file</h2>
+                <input class="block w-full text-gray-700 border rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500" type="file" name="apk_file" accept=".apk" required>
+            </div>
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold mb-2">Select Security Enhancements:</h3>
+                <div class="space-y-2">
+                    <label class="flex items-center space-x-2">
+                        <input class="text-green-600 focus:ring-green-500" type="checkbox" id="encryption" name="enhancements" value="encryption">
+                        <span>Encryption (Data at Rest)</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input class="text-green-600 focus:ring-green-500" type="checkbox" id="ssl_pinning" name="enhancements" value="ssl_pinning">
+                        <span>SSL Pinning (Network Security)</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input class="text-green-600 focus:ring-green-500" type="checkbox" id="biometric" name="enhancements" value="biometric">
+                        <span>Biometric Authentication</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input class="text-green-600 focus:ring-green-500" type="checkbox" id="obfuscation" name="enhancements" value="obfuscation">
+                        <span>Code Obfuscation</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input class="text-green-600 focus:ring-green-500" type="checkbox" id="root_detection" name="enhancements" value="root_detection">
+                        <span>Root Detection</span>
+                    </label>
+                </div>
+            </div>
+            <div class="text-center">
+                <input class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500" type="submit" value="Upload and Enhance">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
