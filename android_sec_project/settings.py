@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+from pathlib import Path
+import os
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+SECRET_KEY = 'django-insecure-e7)pq0nj3bm(+i6nbf@_@gk&m&bo$^5c)+_hctny#3^s&#icw*'
+
+DEBUG = False
+
+ALLOWED_HOSTS = ['yourdomain.com']
+
+# Security settings
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+X_FRAME_OPTIONS = 'DENY'
+=======
 """
 Django settings for android_sec_project project.
 
@@ -29,6 +47,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+>>>>>>> origin/main
 
 INSTALLED_APPS = [
     'security_enhancer',
@@ -70,10 +89,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'android_sec_project.wsgi.application'
 
+<<<<<<< HEAD
+=======
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+>>>>>>> origin/main
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -81,10 +103,13 @@ DATABASES = {
     }
 }
 
+<<<<<<< HEAD
+=======
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
+>>>>>>> origin/main
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -100,6 +125,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+<<<<<<< HEAD
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'UTC'
+USE_I18N = True
+USE_TZ = True
+
+STATIC_URL = 'static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+=======
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -124,3 +161,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+>>>>>>> origin/main
