@@ -21,16 +21,18 @@ def upload_apk(request):
         enhancements = request.POST.getlist('enhancements')
         
         # Process the APK
-        enhanced_apk_path = enhance_security(fs.path(filename), enhancements, filename)
+        enhanced_apk_path = fs.path(filename)
         
         # Provide the enhanced APK for download
         enhanced_apk_url = fs.url(os.path.basename(enhanced_apk_path))
+
+        return redirect(f'/download/?enhanced_apk_url={enhanced_apk_url}')
         
-        return render(request, 'security_enhancer/result.html', {
+        '''return render(request, 'security_enhancer/result.html', {
             'original_file': uploaded_file_url,
             'enhanced_file': enhanced_apk_url,
             'enhancements': enhancements
-        })
+        })'''
     
     return render(request, 'security_enhancer/upload.html')
 
@@ -54,6 +56,12 @@ def enhance_security(apk_path, enhancements):
     enhanced_apk_path = recompile_apk(decompiled_dir)
     
     return enhanced_apk_path
+
+def download_page(request):
+    enhanced_apk_url = request.GET.get('enhanced_apk_url')
+    return render(request, 'security_enhancer/download.html', {
+        'enhanced_apk_url': enhanced_apk_url
+    })
 
 def decompile_apk(apk_path):
     # Use apktool to decompile the APK

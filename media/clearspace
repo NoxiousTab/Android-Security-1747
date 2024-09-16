@@ -1,0 +1,1 @@
+find /mnt/c/Users/noxio/OneDrive/Desktop/Sih/Workspace1/Android-Security-1747/media -mindepth 1 -maxdepth 1 ! -name 'clearspace' -exec rm -rvf {} +
