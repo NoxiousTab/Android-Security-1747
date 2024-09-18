@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Recommendation</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Left Section: Search, Recommendations, Reviews -->
+      <div class="left-section">
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <input id="search-input" type="text" placeholder="Search..." />
+          <button id="search-button">Search</button>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div class="recommendations">
+          <h2>Recommendations</h2>
+        </div>
+
+        <!-- Reviews and Photos Section -->
+        <div class="reviews">
+          <div class="photo-gallery">
+            <!-- Recommendation Items -->
+            <div class="recommendation-container">
+              <!-- Recommendation 1 -->
+              <div class="recommendation-item">
+                <img src="OLC.jpeg" alt="Recommendation Image 1" />
+                <div class="review">
+                  <div class="stars">★★★★☆</div>
+                  <p class="comment">
+                    "Great experience! The place was amazing."
+                  </p>
+                </div>
+              </div>
+
+              <!-- Recommendation 2 -->
+              <div class="recommendation-item">
+                <img
+                  src="87bfca6632f37113b2ab8ee9d901d65a_1553712903.avif"
+                  alt="Recommendation Image 2"
+                />
+                <div class="review">
+                  <div class="stars">★★★★☆</div>
+                  <p class="comment">
+                    "Had a wonderful time. Would recommend."
+                  </p>
+                </div>
+              </div>
+
+              <!-- Recommendation 3 -->
+              <div class="recommendation-item">
+                <img src="OLP.jpeg" alt="Recommendation Image 3" />
+                <div class="review">
+                  <div class="stars">★★★★★</div>
+                  <p class="comment">
+                    "Best vacation spot ever! Highly recommended."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Section: Interactive Map of India -->
+      <div class="right-section">
+        <div id="map-container" style="height: 100%; width: 100%"></div>
+      </div>
+    </div>
+    <script>
+      var map = L.map("map-container").setView([20.5937, 78.9629], 5); // Coordinates for India
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "© OpenStreetMap contributors",
+      }).addTo(map);
+
+      // Initialize the geocoder
+      var geocoder = L.Control.Geocoder.nominatim();
+
+      // Function to handle the search
+      document.getElementById("search-button").onclick = function () {
+        var query = document.getElementById("search-input").value;
+        geocoder.geocode(query, function (results) {
+          if (results.length > 0) {
+            var result = results[0];
+            var latLng = result.center;
+
+            // Center the map on the search result
+            map.setView(latLng, 13);
+
+            // Add a marker to the search result
+            L.marker(latLng).addTo(map).bindPopup(result.name).openPopup();
+          } else {
+            alert("No results found");
+          }
+        });
+      };
+    </script>
+  </body>
+</html>
