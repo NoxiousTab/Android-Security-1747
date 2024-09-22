@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>APK Security Layers</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="stylemain.css" />
+  </head>
+  <body>
+    <button class="sidebar-toggle-btn" onclick="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="container">
+      <div class="sidebar" id="sidebar">
+        <div class="user-info">
+          <img src="OIP.jpeg" alt="User Photo" class="user-photo" />
+          <h2>Mukesh</h2>
+          <p>ID: 6969</p>
+        </div>
+        <div class="previous-files">
+          <h3>Previous APK's/Files</h3>
+          <ul>
+            <li><i class="Previous upload"></i> APK/File 1</li>
+            <li><i class="Previous upload"></i> APK/File 2</li>
+            <li><i class="Previous upload"></i> APK/File 3</li>
+          </ul>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="upload-section">
+          <h3>Add APK / File</h3>
+          <button class="upload_button">+</button>
+        </div>
+        <div class="security-layers">
+          <h3>Select Security Layers</h3>
+          <ul>
+            <li>
+              <input type="checkbox" id="encryption" />
+              <label for="encryption">Encryption (Data at Rest)</label>
+            </li>
+            <li>
+              <input type="checkbox" id="ssl" />
+              <label for="ssl">SSL Pinning (Network Security)</label>
+            </li>
+            <li>
+              <input type="checkbox" id="biometric" />
+              <label for="biometric">Biometric Authentication</label>
+            </li>
+            <li>
+              <input type="checkbox" id="obfuscation" />
+              <label for="obfuscation">Code Obfuscation</label>
+            </li>
+            <li>
+              <input type="checkbox" id="root-detection" />
+              <label for="root-detection">Root Detection</label>
+            </li>
+          </ul>
+          <button class="enhance_button">Upload and Enhance</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
