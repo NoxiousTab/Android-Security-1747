@@ -99,3 +99,6 @@ def apply_obfuscation(decompiled_dir):
 def apply_root_detection(decompiled_dir):
     # TODO: Implement root detection logic
     pass
+
+def mainpage(request):
+	return render(request, 'security_enhancer/mainpage.html')
